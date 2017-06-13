@@ -13,7 +13,7 @@ if ( ! empty( $talk_url ) ) : ?>
 	<div id="coral_talk_<?php echo absint( $rand ); ?>"></div>
 	<script src="<?php echo esc_url( $talk_url . '/embed.js' ); ?>" async onload="
 		Coral.Talk.render(document.getElementById('coral_talk_<?php echo absint( $rand ); ?>'), {
-			talk: <?php echo wp_json_encode( $talk_url ); ?>
+			talk: '<?php echo esc_url( $talk_url ); ?>'
 		});
 	"></script>
 <?php endif;
