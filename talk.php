@@ -57,7 +57,7 @@ function coral_talk_get_comments_template_path() {
  * Template tag to render the Coral Talk template without the performance hit of
  * filtering comments_template()
  *
- * @since 0.0.2
+ * @since 0.0.1
  */
 function coral_talk_comments_template() {
 	require( coral_talk_get_comments_template_path() );
