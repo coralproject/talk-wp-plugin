@@ -4,8 +4,8 @@
  *
  * @package Talk_Plugin
  */
+
 ?>
-<p>Lorem ipsum Proident non eu Duis amet exercitation ad laboris officia eu anim sunt enim sint reprehenderit voluptate qui aute ut nulla minim consectetur sint consectetur dolor ut reprehenderit tempor ad eu voluptate dolor non Excepteur aute dolore dolore.</p>
 <p>
 	<?php printf(
 		esc_html__( 'You can find out how to install and manage Talk %shere%s.', 'coral-project-talk' ),
