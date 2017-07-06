@@ -4,7 +4,6 @@
  *
  * @package Talk_Plugin
  */
-
 class Talk_Default_Comments_Settings {
 	/**
 	 * Just the constructor
@@ -21,6 +20,11 @@ class Talk_Default_Comments_Settings {
 		} );
 	}
 
+	/**
+	 * Print admin notice in Discussion settings page so people don't get confused
+	 *
+	 * @since 0.0.2
+	 */
 	public function options_discussion_notice() {
 		$screen = get_current_screen();
 		if ( 'options-discussion' !== $screen->base ) {

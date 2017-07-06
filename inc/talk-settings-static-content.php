@@ -4,6 +4,7 @@
  *
  * @package Talk_Plugin
  */
+
 ?>
 <p>
 	<?php printf(

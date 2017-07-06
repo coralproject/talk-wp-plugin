@@ -4,7 +4,6 @@
  *
  * @package Talk_Plugin
  */
-
 class Talk_Settings_Page {
 	/**
 	 * Talk_Settings_Page constructor.
@@ -58,9 +57,6 @@ class Talk_Settings_Page {
 	 * Prints input field for settings.
 	 *
 	 * @since 0.0.1
-	 *
-	 * @param string $option_id    Field option id.
-	 * @param string $placeholder  Placeholder text.
 	 */
 	public function render_base_url_field() {
 		?>

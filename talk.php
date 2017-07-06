@@ -3,7 +3,7 @@
  * Plugin Name: Coral Project Talk
  * Plugin URI: https://coralproject.net
  * Description: A plugin to replace stock WP commenting with Talk from the Coral Project
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Alley Interactive, Josh Kadis
  * Author URI: https://www.alleyinteractive.com
  * License: Apache 2.0
@@ -35,6 +35,7 @@ class Talk_Plugin {
  * Assuming that the plugin is active (otherwise this function won't be available)
  * determine if the required Talk instance URL option is set
  *
+ * @since 0.0.2
  * @return bool
  */
 function coral_talk_plugin_is_usable() {
@@ -45,6 +46,7 @@ function coral_talk_plugin_is_usable() {
 /**
  * Get absolute path to comments template file
  *
+ * @since 0.0.2
  * @return string File path
  */
 function coral_talk_get_comments_template_path() {
@@ -54,6 +56,8 @@ function coral_talk_get_comments_template_path() {
 /**
  * Template tag to render the Coral Talk template without the performance hit of
  * filtering comments_template()
+ *
+ * @since 0.0.2
  */
 function coral_talk_comments_template() {
 	require( coral_talk_get_comments_template_path() );
