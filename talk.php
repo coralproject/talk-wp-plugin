@@ -63,4 +63,15 @@ function coral_talk_comments_template() {
 	require( coral_talk_get_comments_template_path() );
 }
 
+/**
+ * Construct asset_id based on current post type and ID.
+ * Must be used inside The Loop.
+ *
+ * @return string asset_id
+ * @since 0.0.2
+ */
+function coral_talk_get_asset_id() {
+	return get_post_type() . '-' . get_the_ID();
+}
+
 new Talk_Plugin;
