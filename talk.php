@@ -22,14 +22,22 @@ class Talk_Plugin {
 	 */
 	public function __construct() {
 		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-settings-page.php' );
-		add_filter( 'comments_template', function() {
-			return ( CORAL_PROJECT_TALK_DIR . '/inc/comments-template.php' );
+		add_filter( 'comments_template', function( $default_template_path ) {
+			$talk_url = get_option( 'coral_talk_base_url' );
+			if ( empty( $talk_url ) ) {
+				return $default_template_path;
+			}
+			return coral_talk_comments_template_path();
 		}, 99 );
 	}
 }
 
+function coral_talk_comments_template_path() {
+	return ( CORAL_PROJECT_TALK_DIR . '/inc/comments-template.php' );
+}
+
 function coral_talk_comments_template() {
-	require( CORAL_PROJECT_TALK_DIR . '/inc/comments-template.php' );
+	require( coral_talk_comments_template_path() );
 }
 
 new Talk_Plugin;
