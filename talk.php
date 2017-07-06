@@ -22,6 +22,7 @@ class Talk_Plugin {
 	 */
 	public function __construct() {
 		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-settings-page.php' );
+		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-default-comments-settings.php' );
 		add_filter( 'comments_template', function( $default_template_path ) {
 			return coral_talk_plugin_is_usable() ?
 				coral_talk_get_comments_template_path() :
