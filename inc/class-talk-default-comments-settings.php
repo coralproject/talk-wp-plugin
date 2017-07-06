@@ -16,7 +16,7 @@ class Talk_Default_Comments_Settings {
 		} );
 		add_action( 'post_comment_status_meta_box-options', function() {
 			printf( '<p><em>%s</em></p>',
-				esc_html__( 'Comments are managed by Coral Project Talk', 'coral-project-talk' )
+				esc_html__( 'Comments managed by Coral Project Talk', 'coral-project-talk' )
 			);
 		} );
 	}

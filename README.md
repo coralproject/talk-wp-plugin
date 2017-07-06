@@ -22,3 +22,17 @@ Your site must be served over `https` in order to integrate with Talk **unless**
 If your theme uses WordPress' standard `comments_template()` to render comments forms, the output will be overridden by the Talk embed code.
 
 If you are building a custom theme, we recommend using `coral_talk_comments_template()` instead of the usual `comments_template()` for performance reasons.
+
+Note that comments can still be turned on or off for an invidual post:
+
+![Discussion meta box](lib/img/discussion-meta-box.png)
+
+[`comments_open()`](https://codex.wordpress.org/Function_Reference/comments_open) will still work when Coral Project Talk is active, but other functions like [`get_comments_number()`](https://codex.wordpress.org/Template_Tags/get_comments_number) that reference the `wp_comments` database table may not.
+
+We recommend something like:
+
+```
+if ( comments_open() ) {
+	coral_talk_comments_template();
+}
+```
