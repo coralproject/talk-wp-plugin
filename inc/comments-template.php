@@ -13,7 +13,8 @@ if ( ! empty( $talk_url ) ) : ?>
 	<div id="coral_talk_<?php echo absint( $rand ); ?>"></div>
 	<script src="<?php echo esc_url( $talk_url . '/embed.js' ); ?>" async onload="
 		Coral.Talk.render(document.getElementById('coral_talk_<?php echo absint( $rand ); ?>'), {
-			talk: '<?php echo esc_url( $talk_url ); ?>'
+			talk: '<?php echo esc_url( $talk_url ); ?>',
+			asset_id: '<?php echo esc_js( coral_talk_get_asset_id() ); ?>'
 		});
 	"></script>
 <?php endif;

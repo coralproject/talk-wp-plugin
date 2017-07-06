@@ -1,6 +1,6 @@
 <?php
 /**
- * Adjust WordPress comments settings display in WP Admin with Coral Talk is active
+ * Adjust WordPress comments settings display in WP Admin while Coral Talk is active
  *
  * @package Talk_Plugin
  */

@@ -15,7 +15,9 @@ Then...
 
 ## HTTPS and Dev Mode
 
-Your site must be served over `https` in order to integrate with Talk **unless** Talk is set to dev mode. If you're installing Talk with Docker, you can do that by adding `NODE_ENV=dev` to the environment variables in your `docker-compose.yml` ([more info](https://github.com/coralproject/talk/blob/master/INSTALL.md#installing)).
+Your site must be served over `https` in order to integrate with Talk **unless** Talk is set to dev mode.
+
+If you're installing Talk with Docker, you can do that by adding `NODE_ENV=dev` to the environment variables in your [`docker-compose.yml`](https://github.com/coralproject/talk/blob/master/INSTALL.md#installing). Otherwise, any method of setting `process.env.NODE_ENV = 'dev'` will do the trick.
 
 ## Theme usage
 
