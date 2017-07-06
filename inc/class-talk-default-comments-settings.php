@@ -14,6 +14,11 @@ class Talk_Default_Comments_Settings {
 		add_filter( 'admin_menu', function() {
 			remove_menu_page( 'edit-comments.php' );
 		} );
+		add_action( 'post_comment_status_meta_box-options', function() {
+			printf( '<p><em>%s</em></p>',
+				esc_html__( 'Comments are managed by Coral Project Talk', 'coral-project-talk' )
+			);
+		} );
 	}
 
 	public function options_discussion_notice() {
