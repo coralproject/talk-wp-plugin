@@ -32,6 +32,7 @@ class Talk_Settings_Page {
 	 * Registers the settings section(s) and field(s)
 	 *
 	 * @since 0.0.1
+	 * @since 0.0.3 Added new container classes setting
 	 */
 	public function setup_settings_page() {
 		add_settings_section(
@@ -51,6 +52,15 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_base_url' );
+
+		add_settings_field(
+			'coral_talk_container_classes',
+			__( 'Talk Embed Container CSS Classes', 'coral-project-talk' ),
+			array( $this, 'render_container_classes_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_talk_container_classes' );
 	}
 
 	/**
@@ -67,6 +77,24 @@ class Talk_Settings_Page {
 			id="coral_talk_base_url"
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
+		/>
+		<?php
+	}
+
+	/**
+	 * Prints input field for settings.
+	 *
+	 * @since 0.0.3
+	 */
+	public function render_container_classes_field() {
+		?>
+		<input
+			style="width: 600px; height: 40px;"
+			name="coral_talk_container_classes"
+			placeholder=""
+			id="coral_talk_container_classes"
+			type="text"
+			value="<?php echo esc_attr( get_option( 'coral_talk_container_classes' ) ); ?>"
 		/>
 		<?php
 	}

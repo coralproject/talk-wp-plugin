@@ -5,16 +5,19 @@
  * However, it is more performant to use coral_talk_comments_template()
  *
  * @package Talk_Plugin
+ * @since 0.0.3 Added support for talk container class and removed id
  */
 
 $talk_url = get_option( 'coral_talk_base_url' );
-$rand = rand();
+$talk_container_classes = get_option( 'coral_talk_container_classes' );
+$div_id = 'coral_talk' . absint(rand());
 if ( ! empty( $talk_url ) ) : ?>
-	<div id="coral_talk_<?php echo absint( $rand ); ?>"></div>
+	<div class="<?php echo esc_attr( $talk_container_classes ); ?>" id="<?php echo $div_id; ?>"></div>
 	<script src="<?php echo esc_url( $talk_url . '/embed.js' ); ?>" async onload="
-		Coral.Talk.render(document.getElementById('coral_talk_<?php echo absint( $rand ); ?>'), {
+		Coral.Talk.render(document.getElementById('<?php echo $div_id; ?>'), {
 			talk: '<?php echo esc_url( $talk_url ); ?>',
-			asset_id: '<?php echo esc_js( coral_talk_get_asset_id() ); ?>'
+			// Disabled, if the id is specified, Talk expects that that asset exists already.
+			// asset_id: '<?php echo esc_js( coral_talk_get_asset_id() ); ?>'
 		});
 	"></script>
 <?php endif;
