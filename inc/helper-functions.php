@@ -10,11 +10,11 @@
  * Prints an admin notice. If the message contains two %s placeholders,
  * the content between them will be wrapped in a link to the plugin settings page
  *
- * @param string $type 'error', 'warning', 'success'
+ * @param string $type 'error', 'warning', 'success'.
  * @param string $message Translated message text.
  */
 function coral_talk_print_admin_notice( $type = 'error', $message = 'Coral Talk error' ) {
-	$has_link = 2 === substr_count( $message, '%s' );
+	$has_link = ( 2 === substr_count( $message, '%s' ) );
 
 	?>
 		<div class="notice notice-<?php echo esc_attr( $type ); ?>">

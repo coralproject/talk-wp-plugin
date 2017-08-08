@@ -33,7 +33,7 @@ class Talk_Plugin {
 			if ( ! coral_talk_plugin_is_usable() ) {
 				coral_talk_print_admin_notice(
 					'warning',
-					__('The Base URL is required in %sCoral Talk settings%s', 'coral-project-talk' )
+					__( 'The Base URL is required in %sCoral Talk settings%s', 'coral-project-talk' )
 				);
 			}
 		} );
