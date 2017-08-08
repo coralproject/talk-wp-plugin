@@ -3,7 +3,7 @@
  * Plugin Name: Coral Project Talk
  * Plugin URI: https://coralproject.net
  * Description: A plugin to replace stock WP commenting with Talk from the Coral Project
- * Version: 0.0.3
+ * Version: 0.0.4
  * Author: Alley Interactive, Josh Kadis, The Coral Project
  * Author URI: https://www.alleyinteractive.com
  * License: Apache 2.0
