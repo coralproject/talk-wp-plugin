@@ -21,6 +21,7 @@ class Talk_Plugin {
 	 * Talk_Plugin constructor.
 	 */
 	public function __construct() {
+		require_once( CORAL_PROJECT_TALK_DIR . '/inc/helper-functions.php' );
 		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-settings-page.php' );
 		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-default-comments-settings.php' );
 		add_filter( 'comments_template', function( $default_template_path ) {
@@ -28,6 +29,14 @@ class Talk_Plugin {
 				coral_talk_get_comments_template_path() :
 				$default_template_path;
 		}, 99 );
+		add_action( 'admin_notices', function() {
+			if ( ! coral_talk_plugin_is_usable() ) {
+				coral_talk_print_admin_notice(
+					'warning',
+					__('The Base URL is required in %sCoral Talk settings%s', 'coral-project-talk' )
+				);
+			}
+		} );
 	}
 }
 

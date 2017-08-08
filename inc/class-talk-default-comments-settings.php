@@ -27,17 +27,12 @@ class Talk_Default_Comments_Settings {
 	 */
 	public function options_discussion_notice() {
 		$screen = get_current_screen();
-		if ( 'options-discussion' !== $screen->base ) {
-			return;
+		if ( 'options-discussion' === $screen->base ) {
+			coral_talk_print_admin_notice(
+				'success',
+				__( 'Comments are managed by Coral Project Talk. (%ssettings%s)', 'coral-project-talk' )
+			);
 		}
-		printf(
-			'<div class="notice notice-success"><p>%s</p></div>',
-			sprintf(
-				esc_html__( 'Comments are managed by Coral Project Talk. (%ssettings%s)', 'coral-project-talk' ),
-				'<a href="' . esc_url( admin_url( 'options-general.php?page=talk-settings' ) ) . '">',
-				'</a>'
-			)
-		);
 	}
 }
 
