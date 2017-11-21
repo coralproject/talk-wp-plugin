@@ -51,7 +51,10 @@ class Talk_Settings_Page {
 			'talk-settings',
 			'about-talk'
 		);
-		register_setting( 'talk-settings', 'coral_talk_base_url' );
+		register_setting( 'talk-settings', 'coral_talk_base_url', array(
+			'type' => 'string',
+			'sanitize_callback' => array( $this, 'sanitize_base_url' ),
+		) );
 
 		add_settings_field(
 			'coral_talk_container_classes',
@@ -61,6 +64,17 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_container_classes' );
+	}
+
+	/**
+	 * Sanitizes base URL input, removing trailing slash
+	 *
+	 * @param String $url Input to sanitize.
+	 * @return String Sanitized and untrailingslashed URL.
+	 * @since 0.0.6
+	 */
+	public function sanitize_base_url( $url ) {
+		return esc_url( untrailingslashit( $url ) );
 	}
 
 	/**
