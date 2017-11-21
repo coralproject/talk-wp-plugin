@@ -69,8 +69,8 @@ class Talk_Settings_Page {
 	/**
 	 * Sanitizes base URL input, removing trailing slash
 	 *
-	 * @param String $url Input to sanitize
-	 * @return String Sanitized and untrailingslashed URL
+	 * @param String $url Input to sanitize.
+	 * @return String Sanitized and untrailingslashed URL.
 	 * @since 0.0.6
 	 */
 	public function sanitize_base_url( $url ) {
