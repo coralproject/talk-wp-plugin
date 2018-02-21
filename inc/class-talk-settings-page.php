@@ -104,6 +104,7 @@ class Talk_Settings_Page {
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
 		/>
+		<p class="description">The root url of the installed Talk application.</p>
 		<?php
 	}
 
@@ -122,6 +123,7 @@ class Talk_Settings_Page {
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
+		<p class="description">The root url where static Talk assets should be served from. This is used when static Talk assets are served from a CDN. (Default to the value of Talk Server Base URL)</p>
 		<?php
 	}
 
