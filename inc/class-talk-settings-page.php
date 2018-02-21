@@ -104,7 +104,7 @@ class Talk_Settings_Page {
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
 		/>
-		<p class="description">The root url of the installed Talk application. This is the same value as <a href="<?php echo esc_url("https://coralproject.github.io/talk/configuration/#talk_root_url"); ?>">TALK_ROOT_URL</a> defined in the Talk application configuration.</p>
+		<p class="description">The root url of the installed Talk application. This is the same value as <a href="<?php echo esc_url( 'https://coralproject.github.io/talk/configuration/#talk_root_url' ); ?>">TALK_ROOT_URL</a> defined in the Talk application configuration.</p>
 		<?php
 	}
 
@@ -123,7 +123,7 @@ class Talk_Settings_Page {
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
-		<p class="description">The root url where static Talk assets should be served from. This is the same value as <a href="<?php echo esc_url("https://coralproject.github.io/talk/advanced-configuration/#talk_static_uri"); ?>">TALK_STATIC_URI</a> defined in the Talk application configuration.</p>
+		<p class="description">The root url where static Talk assets should be served from. This is the same value as <a href="<?php echo esc_url( 'https://coralproject.github.io/talk/advanced-configuration/#talk_static_uri' ); ?>">TALK_STATIC_URI</a> defined in the Talk application configuration.</p>
 		<?php
 	}
 
