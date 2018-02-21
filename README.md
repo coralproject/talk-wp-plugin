@@ -38,3 +38,8 @@ if ( comments_open() ) {
 	coral_talk_comments_template();
 }
 ```
+
+## Version
+Talk version <= `v3.9.1` use talk-wp-plugin `v0.0.6`
+
+Talk version >= `4.0.0` use talk-wp-plugin `v0.1.0`
