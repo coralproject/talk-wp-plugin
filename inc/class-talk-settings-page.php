@@ -53,7 +53,19 @@ class Talk_Settings_Page {
 		);
 		register_setting( 'talk-settings', 'coral_talk_base_url', array(
 			'type' => 'string',
-			'sanitize_callback' => array( $this, 'sanitize_base_url' ),
+			'sanitize_callback' => array( $this, 'sanitize_url' ),
+		) );
+
+		add_settings_field(
+			'coral_talk_static_url',
+			__( 'Talk Static Asset URL', 'coral-project-talk' ),
+			array( $this, 'render_static_url_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_talk_static_url', array(
+			'type' => 'string',
+			'sanitize_callback' => array( $this, 'sanitize_url' ),
 		) );
 
 		add_settings_field(
@@ -73,7 +85,7 @@ class Talk_Settings_Page {
 	 * @return String Sanitized and untrailingslashed URL.
 	 * @since 0.0.6
 	 */
-	public function sanitize_base_url( $url ) {
+	public function sanitize_url( $url ) {
 		return esc_url( untrailingslashit( $url ) );
 	}
 
@@ -91,6 +103,24 @@ class Talk_Settings_Page {
 			id="coral_talk_base_url"
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
+		/>
+		<?php
+	}
+
+	/**
+	 * Prints input field for static url setting.
+	 *
+	 * @since 0.1.0
+	 */
+	public function render_static_url_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_talk_static_url"
+				placeholder="https://cdn.talk-assets.com"
+				id="coral_talk_static_url"
+				type="url"
+				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
 		<?php
 	}
