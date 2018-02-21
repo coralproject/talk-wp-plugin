@@ -15,8 +15,6 @@ $div_id = 'coral_talk_' . absint( rand() );
 if ( ! empty( $talk_url ) ) : ?>
 	<div class="<?php echo esc_attr( $talk_container_classes ); ?>" id="<?php echo esc_attr( $div_id ); ?>"></div>
 	<script src="<?php echo esc_url( $static_url . '/static/embed.js' ); ?>" async onload="
-		Coral.static_url = '<?php echo esc_url( $static_url ); ?>';
-		Coral.talk_url = '<?php echo esc_url( $talk_url ); ?>';
 		Coral.talkStream = Coral.Talk.render(document.getElementById('<?php echo esc_js( $div_id ); ?>'), {
 			talk: '<?php echo esc_url( $talk_url ); ?>'
 		});
