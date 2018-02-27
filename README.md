@@ -4,7 +4,7 @@ This plugin replaces standard WordPress commenting with [Talk](https://coralproj
 
 ## Setup
 
-First, you'll need a server running your own instance of Talk. See the Talk [installation guide](https://github.com/coralproject/talk/blob/master/INSTALL.md) for more info about that.
+First, you'll need a server running your own instance of Talk. See the [Talk Docs](https://coralproject.github.io/talk/) for more info about that.
 
 Then...
 
