@@ -9,7 +9,7 @@
 <p>
 	<?php printf(
 		esc_html__( 'You can find out how to install and manage Talk %shere%s.', 'coral-project-talk' ),
-		'<a href="https://coralproject.github.io/talk/">',
+		'<a href="https://docs.coralproject.net/talk/">',
 		'</a>'
 	); ?>
 </p>
