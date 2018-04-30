@@ -33,7 +33,7 @@ Note that comments can still be turned on or off for an invidual post:
 
 We recommend something like:
 
-```
+```php
 if ( comments_open() ) {
 	coral_talk_comments_template();
 }
