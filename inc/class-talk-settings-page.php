@@ -76,6 +76,15 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_container_classes' );
+
+		add_settings_field(
+			'coral_talk_jwt_secret',
+			__( 'Talk JWT Secret', 'coral-project-talk' ),
+			array( $this, 'render_jwt_secret_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_talk_jwt_secret');
 	}
 
 	/**
@@ -128,6 +137,25 @@ class Talk_Settings_Page {
 	}
 
 	/**
+	 * Prints input field for jwt secret setting.
+	 *
+	 * @since 0.1.0
+	 */
+	public function render_jwt_secret_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_talk_jwt_secret"
+				placeholder="jX9y8G2ApcVLwyL{$6s3"
+				id="coral_talk_jwt_secret"
+				type="text"
+				value="<?php echo get_option( 'coral_talk_jwt_secret' ); ?>"
+		/>
+		<p class="description">The HS256 application signing secret specified as a simple string. We recommend using a password generator and pasting its output. This value should match the <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-jwt-secret' ); ?>">TALK_JWT_SECRET</a> defined in the Talk application configuration.</p>
+		<?php
+	}
+
+	/**
 	 * Prints input field for settings.
 	 *
 	 * @since 0.0.3
@@ -164,6 +192,7 @@ class Talk_Settings_Page {
 		</div>
 		<?php
 	}
+	
 }
 
 new Talk_Settings_Page;
