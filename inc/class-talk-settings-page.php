@@ -146,9 +146,8 @@ class Talk_Settings_Page {
 		<input
 				style="width: 600px; height: 40px;"
 				name="coral_talk_jwt_secret"
-				placeholder="jX9y8G2ApcVLwyL{$6s3"
 				id="coral_talk_jwt_secret"
-				type="text"
+				type="password"
 				value="<?php echo get_option( 'coral_talk_jwt_secret' ); ?>"
 		/>
 		<p class="description">The HS256 application signing secret specified as a simple string. We recommend using a password generator and pasting its output. This value should match the <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-jwt-secret' ); ?>">TALK_JWT_SECRET</a> defined in the Talk application configuration.</p>
@@ -192,8 +191,7 @@ class Talk_Settings_Page {
 		</div>
 		<?php
 	}
-	
+
 }
 
 new Talk_Settings_Page;
-
