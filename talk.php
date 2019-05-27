@@ -25,7 +25,7 @@ class Talk_Plugin {
 		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-settings-page.php' );
 		require_once( CORAL_PROJECT_TALK_DIR . '/inc/class-talk-default-comments-settings.php' );
 		add_filter( 'comments_template', function( $default_template_path ) {
-			return coral_talk_plugin_is_usable() ?
+			return coral_talk_plugin_is_usable() && coral_talk_plugin_enable_for_page() ?
 				coral_talk_get_comments_template_path() :
 				$default_template_path;
 		}, 99 );
@@ -50,6 +50,30 @@ class Talk_Plugin {
 function coral_talk_plugin_is_usable() {
 	$talk_url = get_option( 'coral_talk_base_url' );
 	return ! empty( $talk_url );
+}
+
+/**
+ * Check if comments should be rendered for the current page
+ *
+ * @since 0.1.1
+ * @return bool
+ */
+function coral_talk_plugin_enable_for_page() {
+	global $post;
+	if ( ! isset( $post ) ) {
+		return false;
+	}
+	// Don't render if comments are off for this post
+	if ( ! comments_open() ) {
+		return false;
+	}
+	// Don't render if this is a preview
+	if ( in_array( $post->post_status, array(
+		'draft', 'auto-draft', 'pending', 'future', 'trash'
+	) ) ) {
+		return false;
+	}
+	return true;
 }
 
 /**
