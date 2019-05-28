@@ -41,7 +41,7 @@ if ( comments_open() ) {
 
 ## AMP support
 
-Talk v4.8.0+ comes with AMP support. This plugin automatically integrates with [AMP for WP](https://wordpress.org/plugins/accelerated-mobile-pages/) and adds the AMP version of Talk to the comments. Don't forget to disable the other comments integrations inside of `AMP -> Settings`.
+Talk v4.9.0+ comes with AMP support. This plugin automatically integrates with [AMP for WP](https://wordpress.org/plugins/accelerated-mobile-pages/) and adds the AMP version of Talk to the comments. Don't forget to disable the other comments integrations inside of `AMP -> Settings`.
 
 If you are building a custom theme, you can use `coral_talk_comments_amp_template()` to add the Talk AMP Iframe.
 
