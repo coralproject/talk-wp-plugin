@@ -76,6 +76,15 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_container_classes' );
+
+		add_settings_field(
+			'coral_talk_version',
+			__( 'Talk version', 'coral-project-talk' ),
+			array( $this, 'render_version_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_talk_version' );
 	}
 
 	/**
@@ -142,6 +151,40 @@ class Talk_Settings_Page {
 			type="text"
 			value="<?php echo esc_attr( get_option( 'coral_talk_container_classes' ) ); ?>"
 		/>
+		<?php
+	}
+
+	/**
+	 * Prints drop down for version.
+	 *
+	 * @since 0.0.3
+	 */
+	public function render_version_field() {
+		?>
+		<select
+			style="width: 600px; height: 40px;"
+			name="coral_talk_version"
+			placeholder=""
+			id="coral_talk_version"
+			type="select"
+		>
+			<option value="4"
+				<?php 
+					if (esc_attr( get_option( 'coral_talk_version' ) ) === "4")
+						echo "selected=\"selected\""
+				?>
+			>
+				4
+			</option>
+			<option value="5"
+				<?php 
+					if (esc_attr( get_option( 'coral_talk_version' ) ) === "5")
+						echo "selected=\"selected\""
+				?>
+			>
+				5
+			</option>
+		</select>
 		<?php
 	}
 
