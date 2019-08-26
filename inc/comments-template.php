@@ -40,6 +40,7 @@ if ( $talk_version == "5" ) : ?>
 				id: "coral_thread",
 				autoRender: true,
 				rootURL: "<?php echo esc_url( $talk_url ); ?>",
+				storyID: "<?php echo get_the_ID(); ?>",
 			});
 		};
 		(d.head || d.body).appendChild(s);
