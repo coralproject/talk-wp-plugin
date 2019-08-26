@@ -3,7 +3,7 @@
  * Plugin Name: Coral Project
  * Plugin URI: https://coralproject.net
  * Description: A plugin to replace stock WP commenting with Coral Project comments.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Alley Interactive, The Coral Project
  * Author URI: https://www.alleyinteractive.com
  * License: Apache 2.0
