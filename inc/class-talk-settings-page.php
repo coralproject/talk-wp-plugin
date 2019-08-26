@@ -20,8 +20,8 @@ class Talk_Settings_Page {
 	 */
 	public function register_settings_page() {
 		add_options_page(
-			__( 'Talk Settings', 'coral-project-talk' ),
-			__( 'Talk Settings', 'coral-project-talk' ),
+			__( 'Coral Settings', 'coral-project-talk' ),
+			__( 'Coral Settings', 'coral-project-talk' ),
 			'manage_options',
 			'talk-settings',
 			array( $this, 'render_settings_page' )
@@ -37,7 +37,7 @@ class Talk_Settings_Page {
 	public function setup_settings_page() {
 		add_settings_section(
 			'about-talk',
-			__( 'About Talk', 'coral-project-talk' ),
+			__( 'About Coral', 'coral-project-talk' ),
 			function() {
 				require_once( CORAL_PROJECT_TALK_DIR . '/inc/talk-settings-static-content.php' );
 			},
@@ -46,7 +46,7 @@ class Talk_Settings_Page {
 
 		add_settings_field(
 			'coral_talk_base_url',
-			__( 'Talk Server Base URL', 'coral-project-talk' ),
+			__( 'Server Base URL', 'coral-project-talk' ),
 			array( $this, 'render_base_url_field' ),
 			'talk-settings',
 			'about-talk'
@@ -58,7 +58,7 @@ class Talk_Settings_Page {
 
 		add_settings_field(
 			'coral_talk_static_url',
-			__( 'Talk Static Asset URL', 'coral-project-talk' ),
+			__( 'Static Asset URL', 'coral-project-talk' ),
 			array( $this, 'render_static_url_field' ),
 			'talk-settings',
 			'about-talk'
@@ -70,7 +70,7 @@ class Talk_Settings_Page {
 
 		add_settings_field(
 			'coral_talk_container_classes',
-			__( 'Talk Embed Container CSS Classes', 'coral-project-talk' ),
+			__( 'Embed Container CSS Classes', 'coral-project-talk' ),
 			array( $this, 'render_container_classes_field' ),
 			'talk-settings',
 			'about-talk'
@@ -79,7 +79,7 @@ class Talk_Settings_Page {
 
 		add_settings_field(
 			'coral_talk_version',
-			__( 'Talk version', 'coral-project-talk' ),
+			__( 'Version', 'coral-project-talk' ),
 			array( $this, 'render_version_field' ),
 			'talk-settings',
 			'about-talk'
@@ -108,12 +108,12 @@ class Talk_Settings_Page {
 		<input
 			style="width: 600px; height: 40px;"
 			name="coral_talk_base_url"
-			placeholder="https://talk.my-site.com"
+			placeholder="https://coral.my-site.com"
 			id="coral_talk_base_url"
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
 		/>
-		<p class="description">The root url of the installed Talk application. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/configuration/#talk-root-url' ); ?>">TALK_ROOT_URL</a> defined in the Talk application configuration.</p>
+		<p class="description">The root url of the installed Coral application. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/configuration/#talk-root-url' ); ?>">ROOT_URL</a> defined in the Coral application configuration.</p>
 		<?php
 	}
 
@@ -132,7 +132,7 @@ class Talk_Settings_Page {
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
-		<p class="description">The root url where static Talk assets should be served from. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-static-uri' ); ?>">TALK_STATIC_URI</a> defined in the Talk application configuration.</p>
+		<p class="description">The root url where static Coral assets should be served from. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-static-uri' ); ?>">STATIC_URI</a> defined in the Coral application configuration.</p>
 		<?php
 	}
 
@@ -196,7 +196,7 @@ class Talk_Settings_Page {
 	public function render_settings_page() {
 		?>
 		<div class="wrap">
-			<h2><?php esc_html_e( 'Talk Settings', 'coral-project-talk' ) ?></h2>
+			<h2><?php esc_html_e( 'Coral Settings', 'coral-project-talk' ) ?></h2>
 			<form method="post" action="options.php">
 				<?php
 				settings_fields( 'talk-settings' );

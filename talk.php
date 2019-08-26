@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Coral Project Talk
+ * Plugin Name: Coral Project
  * Plugin URI: https://coralproject.net
- * Description: A plugin to replace stock WP commenting with Talk from the Coral Project
+ * Description: A plugin to replace stock WP commenting with Coral Project comments.
  * Version: 0.1.0
  * Author: Alley Interactive, The Coral Project
  * Author URI: https://www.alleyinteractive.com
@@ -33,7 +33,7 @@ class Talk_Plugin {
 			if ( ! coral_talk_plugin_is_usable() ) {
 				coral_talk_print_admin_notice(
 					'warning',
-					__( 'The Base URL is required in %sCoral Talk settings%s', 'coral-project-talk' )
+					__( 'The Base URL is required in %sCoral Plugin settings%s', 'coral-project-talk' )
 				);
 			}
 		} );
