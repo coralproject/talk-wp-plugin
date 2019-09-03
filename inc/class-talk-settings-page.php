@@ -160,6 +160,7 @@ class Talk_Settings_Page {
 	 * @since 0.0.3
 	 */
 	public function render_version_field() {
+		$talk_version = esc_attr( get_option( 'coral_talk_version' ) )
 		?>
 		<select
 			style="width: 600px; height: 40px;"
@@ -170,7 +171,7 @@ class Talk_Settings_Page {
 		>
 			<option value="4"
 				<?php 
-					if (esc_attr( get_option( 'coral_talk_version' ) ) === "4")
+					if ($talk_version === "4")
 						echo "selected=\"selected\""
 				?>
 			>
@@ -178,7 +179,7 @@ class Talk_Settings_Page {
 			</option>
 			<option value="5"
 				<?php 
-					if (esc_attr( get_option( 'coral_talk_version' ) ) === "5")
+					if ($talk_version === "5")
 						echo "selected=\"selected\""
 				?>
 			>
