@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Coral Project">
-	<description>PHP_CodeSniffer standard for the Coral Project plugin</description>
+<ruleset name="Coral by Vox Media">
+	<description>PHP_CodeSniffer standard for the Coral by Vox Media plugin</description>
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
 		<exclude name="Squiz.Commenting.FileComment.Missing" />

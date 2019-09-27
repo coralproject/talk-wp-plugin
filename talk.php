@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Coral Project
+ * Plugin Name: Coral by Vox Media
  * Plugin URI: https://coralproject.net
- * Description: A plugin to replace stock WP commenting with Coral Project comments.
- * Version: 0.2.0
- * Author: Alley Interactive, The Coral Project
- * Author URI: https://www.alleyinteractive.com
+ * Description: A plugin to replace stock WP commenting with Coral by Vox Media comments.
+ * Version: 0.2.1
+ * Author: Coral by Vox Media, Alley Interactive
+ * Author URI: https://www.coralproject.net
  * License: Apache 2.0
  *
  * @package Talk_Plugin

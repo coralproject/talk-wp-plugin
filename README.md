@@ -1,6 +1,8 @@
-# Coral Plugin
+# Coral WP Plugin
 
-This plugin replaces standard WordPress commenting with [Coral](https://coralproject.net/products/talk.html) from the [Coral Project](https://coralproject.net).
+This plugin replaces standard WordPress commenting with [Coral by Vox Media](https://coralproject.net). The open-source commenting platform that rethinks
+how moderation, comment display, and conversation function, creating the
+opportunity for safer, smarter discussions.
 
 ## Setup
 
@@ -50,4 +52,4 @@ Coral version <= `v3.9.1` use plugin version `v0.0.6`
 
 Coral version >= `4.0.0` use plugin version `v0.1.0`
 
-Coral version >= `5.0.0` use plugin version `v0.2.0`
+Coral version >= `5.0.0` use plugin version `v0.2.1`
