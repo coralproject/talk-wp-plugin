@@ -3,7 +3,7 @@
  * Plugin Name: Coral by Vox Media
  * Plugin URI: https://coralproject.net
  * Description: A plugin to replace stock WP commenting with Coral by Vox Media comments.
- * Version: 0.2.2
+ * Version: 0.2.3
  * Author: Coral by Vox Media, Alley Interactive
  * Author URI: https://www.coralproject.net
  * License: Apache 2.0

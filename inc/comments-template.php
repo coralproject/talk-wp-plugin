@@ -29,9 +29,7 @@ if ( $talk_version == "5" ) : ?>
 			Coral.createStreamEmbed({
 				id: "coral_thread",
 				autoRender: true,
-				rootURL: "<?php echo esc_url( $talk_url ); ?>",
-				storyURL: "<?php echo home_url( "?p=" . get_the_ID() ); ?>",
-				storyID: "<?php echo get_the_ID(); ?>",
+				rootURL: "<?php echo esc_url( $talk_url ); ?>"
 			});
 		};
 		(d.head || d.body).appendChild(s);
@@ -39,9 +37,9 @@ if ( $talk_version == "5" ) : ?>
 	</script>
 <?php
 else : ?>
-	<div class="<?php echo esc_attr( $talk_container_classes ); ?>" id="<?php echo esc_attr( $div_id ); ?>"></div>
+	<div class="<?php echo esc_attr( $talk_container_classes ); ?>" id="coral_thread"></div>
 	<script src="<?php echo esc_url( $static_url . '/static/embed.js' ); ?>" async onload="
-		Coral.talkStream = Coral.Talk.render(document.getElementById('<?php echo esc_js( $div_id ); ?>'), {
+		Coral.talkStream = Coral.Talk.render(document.getElementById('coral_thread'), {
 			talk: '<?php echo esc_url( $talk_url ); ?>'
 		});
 	"></script>
