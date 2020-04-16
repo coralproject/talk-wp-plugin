@@ -15,7 +15,7 @@ $talk_version = get_option( 'coral_talk_version' );
 
 $div_id = 'coral_talk_' . absint( rand() );
 
-if ( empty( $talk_url) ):
+if ( empty( $talk_url ) || is_attachment() ):
 	exit();
 endif;
 
@@ -30,6 +30,7 @@ if ( $talk_version == "5" ) : ?>
 				id: "coral_thread",
 				autoRender: true,
 				rootURL: "<?php echo esc_url( $talk_url ); ?>",
+				storyURL: "<?php echo home_url( "?p=" . get_the_ID() ); ?>",
 				storyID: "<?php echo get_the_ID(); ?>",
 			});
 		};
