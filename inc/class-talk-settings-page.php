@@ -183,7 +183,7 @@ class Talk_Settings_Page {
 						echo "selected=\"selected\""
 				?>
 			>
-				5
+				5+
 			</option>
 		</select>
 		<?php
