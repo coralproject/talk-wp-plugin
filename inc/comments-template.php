@@ -10,7 +10,6 @@
 
 $talk_url = get_option( 'coral_talk_base_url' );
 $static_url = get_option( 'coral_talk_static_url', $talk_url );
-$talk_container_classes = get_option( 'coral_talk_container_classes' );
 $talk_version = get_option( 'coral_talk_version' );
 $coral_custom_css_url = get_option( 'coral_custom_css_url', null );
 $coral_custom_fonts_css_url = get_option( 'coral_custom_fonts_css_url', null );
@@ -25,7 +24,7 @@ if ( empty( $talk_url ) || is_attachment() ):
 endif;
 
 if ( $talk_version == "5" ) : ?>
-	<div class="<?php echo esc_attr( $talk_container_classes ); ?>" id="coral_thread"></div>
+	<div id="coral_thread"></div>
 	<script type="text/javascript">
 	(function() {
 		var d = document, s = d.createElement('script');

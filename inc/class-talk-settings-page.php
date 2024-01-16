@@ -69,15 +69,6 @@ class Talk_Settings_Page {
 		) );
 
 		add_settings_field(
-			'coral_talk_container_classes',
-			__( 'Embed Container CSS Classes', 'coral-project-talk' ),
-			array( $this, 'render_container_classes_field' ),
-			'talk-settings',
-			'about-talk'
-		);
-		register_setting( 'talk-settings', 'coral_talk_container_classes' );
-
-		add_settings_field(
 			'coral_container_class_name',
 			__( 'Embed Container CSS Class', 'coral-project-talk' ),
 			array( $this, 'render_container_class_name_field' ),
@@ -164,7 +155,7 @@ class Talk_Settings_Page {
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
 		/>
-		<p class="description">The root url of the installed Coral application. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/configuration/#talk-root-url' ); ?>">ROOT_URL</a> defined in the Coral application configuration.</p>
+		<p class="description"><span style="font-weight: bold;">* Required.</span> The root url of the installed Coral application.</p>
 		<?php
 	}
 
@@ -183,7 +174,7 @@ class Talk_Settings_Page {
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
-		<p class="description">The root url where static Coral assets should be served from. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-static-uri' ); ?>">STATIC_URI</a> defined in the Coral application configuration.</p>
+		<p class="description">The root url where static Coral assets should be served from. This is the same value as defined by the <a href="<?php echo esc_url( 'https://docs.coralproject.net/environment-variables#static_uri' ); ?>">STATIC_URI</a> environment variable.</p>
 		<?php
 	}
 
@@ -274,23 +265,6 @@ class Talk_Settings_Page {
 		<?php
 	}
 
-	/**
-	 * Prints input field for settings.
-	 *
-	 * @since 0.0.3
-	 */
-	public function render_container_classes_field() {
-		?>
-		<input
-			style="width: 600px; height: 40px;"
-			name="coral_talk_container_classes"
-			placeholder=""
-			id="coral_talk_container_classes"
-			type="text"
-			value="<?php echo esc_attr( get_option( 'coral_talk_container_classes' ) ); ?>"
-		/>
-		<?php
-	}
 	/**
 	 * Prints drop down for version.
 	 *
