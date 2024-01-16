@@ -12,8 +12,12 @@ $talk_url = get_option( 'coral_talk_base_url' );
 $static_url = get_option( 'coral_talk_static_url', $talk_url );
 $talk_container_classes = get_option( 'coral_talk_container_classes' );
 $talk_version = get_option( 'coral_talk_version' );
-$coral_custom_css_url = get_option( 'coral_custom_css_url' );
-$coral_custom_fonts_css_url = get_option( 'coral_custom_fonts_css_url' );
+$coral_custom_css_url = get_option( 'coral_custom_css_url', null );
+$coral_custom_fonts_css_url = get_option( 'coral_custom_fonts_css_url', null );
+$coral_stream_id = get_option( 'coral_stream_id', "coral_thread");
+$coral_container_class_name = get_option( 'coral_container_class_name', null);
+$coral_disable_default_fonts = get_option( 'coral_disable_default_fonts' );
+$coral_custom_scroll_container = get_option( 'coral_custom_scroll_container', null );
 
 $div_id = 'coral_talk_' . absint( rand() );
 
@@ -29,11 +33,15 @@ if ( $talk_version == "5" ) : ?>
 		s.src = "<?php echo esc_url( $talk_url . '/assets/js/embed.js' ); ?>"
 		s.onload = function() {
 			Coral.createStreamEmbed({
-				id: "coral_thread",
+				id: "<?php echo esc_attr( $coral_stream_id ); ?>",
 				autoRender: true,
 				rootURL: "<?php echo esc_url( $talk_url ); ?>",
+				containerClassName: "<?php echo esc_attr( $coral_container_class_name ); ?>",
 				customCSSURL: "<?php echo esc_url( $coral_custom_css_url ); ?>",
-				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>"
+				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>",
+				// TODO: Make sure this is boolean not string
+				disableDefaultFonts: "<?php echo $coral_disable_default_fonts; ?>",
+				customScrollContainer: "<?php echo esc_attr( $coral_custom_scroll_container ); ?>",
 			});
 		};
 		(d.head || d.body).appendChild(s);

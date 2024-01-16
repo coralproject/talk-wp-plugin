@@ -69,6 +69,15 @@ class Talk_Settings_Page {
 		) );
 
 		add_settings_field(
+			'coral_stream_id',
+			__( 'Stream ID', 'coral-project-talk' ),
+			array( $this, 'render_stream_id_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_stream_id');
+
+		add_settings_field(
 			'coral_talk_container_classes',
 			__( 'Embed Container CSS Classes', 'coral-project-talk' ),
 			array( $this, 'render_container_classes_field' ),
@@ -76,6 +85,15 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_container_classes' );
+
+		add_settings_field(
+			'coral_container_class_name',
+			__( 'Embed Container CSS Class', 'coral-project-talk' ),
+			array( $this, 'render_container_class_name_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_container_class_name' );
 
 		add_settings_field(
 			'coral_talk_version',
@@ -109,6 +127,24 @@ class Talk_Settings_Page {
 			'type' => 'string',
 			'sanitize_callback' => array( $this, 'sanitize_url' ),
 		) );
+
+		add_settings_field(
+			'coral_disable_default_fonts',
+			__( 'Disable default fonts', 'coral-project-talk' ),
+			array( $this, 'render_disable_default_fonts_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_disable_default_fonts');
+
+		add_settings_field(
+			'coral_custom_scroll_container',
+			__( 'Custom scroll container', 'coral-project-talk' ),
+			array( $this, 'render_custom_scroll_container_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_custom_scroll_container' );
 	}
 
 	/**
@@ -160,6 +196,20 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	public function render_stream_id_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_stream_id"
+				placeholder="coral-embed-stream"
+				id="coral_stream_id"
+				type="text"
+				value="<?php echo esc_attr( get_option( 'coral_stream_id' ) ); ?>"
+		/>
+		<p class="description">ID of a DOM element on the page into which the comment stream will be rendered.</p>
+		<?php
+	}
+
 	public function render_custom_css_url_field() {
 		?>
 		<input
@@ -185,6 +235,65 @@ class Talk_Settings_Page {
 				value="<?php echo esc_url( get_option( 'coral_custom_fonts_css_url' ) ); ?>"
 		/>
 		<p class="description">URL for a custom stylesheet with font-face definitions to be included to style this Coral stream. To configure a custom stylesheet for all streams, see advanced configuration options in the admin.</p>
+		<?php
+	}
+
+	public function render_container_class_name_field() {
+		?>
+		<input
+			style="width: 600px; height: 40px;"
+			name="coral_container_class_name"
+			placeholder=""
+			id="coral_container_class_name"
+			type="text"
+			value="<?php echo esc_attr( get_option( 'coral_container_class_name' ) ); ?>"
+		/>
+		<p class="description">HTML class name to add to the container of the stream embed for CSS targeting.</p>
+		<?php
+	}
+
+	public function render_custom_scroll_container_field() {
+		?>
+		<input
+			style="width: 600px; height: 40px;"
+			name="coral_custom_scroll_container"
+			placeholder=""
+			id="coral_custom_scroll_container"
+			type="text"
+			value="<?php echo esc_attr( get_option( 'coral_custom_scroll_container' ) ); ?>"
+		/>
+		<p class="description">Supports a custom scroll container element if Coral is rendered outside of the render window.</p>
+		<?php
+	}
+
+	public function render_disable_default_fonts_field() {
+		?>
+		<select
+				style="width: 600px; height: 40px;"
+				name="coral_disable_default_fonts"
+				placeholder=""
+				id="coral_disable_default_fonts"
+				type="select"
+				value="<?php echo esc_url( get_option( 'coral_disable_default_fonts' ) ); ?>"
+		>
+		<option value="true"
+				<?php 
+					if ($coral_disable_default_fonts === "true")
+						echo "selected=\"selected\""
+				?>
+			>
+				true
+			</option>
+			<option value="false"
+				<?php 
+					if ($coral_disable_default_fonts === "false")
+						echo "selected=\"selected\""
+				?>
+			>
+				false
+			</option>
+	</select>
+		<p class="description">Disable default fonts will turn off font-face loading of Coral's default fonts.</p>
 		<?php
 	}
 
