@@ -253,17 +253,17 @@ class Talk_Settings_Page {
 				type="select"
 				value="<?php echo esc_url( get_option( 'coral_disable_default_fonts' ) ); ?>"
 		>
-		<option value="true"
+		<option value="1"
 				<?php 
-					if ($coral_disable_default_fonts === "true")
+					if ($coral_disable_default_fonts === "1")
 						echo "selected=\"selected\""
 				?>
 			>
 				true
 			</option>
-			<option value="false"
+			<option value="0"
 				<?php 
-					if ($coral_disable_default_fonts === "false")
+					if ($coral_disable_default_fonts === "0")
 						echo "selected=\"selected\""
 				?>
 			>

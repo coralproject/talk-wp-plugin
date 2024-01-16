@@ -38,8 +38,7 @@ if ( $talk_version == "5" ) : ?>
 				containerClassName: "<?php echo esc_attr( $coral_container_class_name ); ?>",
 				customCSSURL: "<?php echo esc_url( $coral_custom_css_url ); ?>",
 				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>",
-				// TODO: Make sure this is boolean not string
-				disableDefaultFonts: "<?php echo $coral_disable_default_fonts; ?>",
+				disableDefaultFonts: "<?php echo boolVal( $coral_disable_default_fonts ); ?>",
 				customScrollContainer: "<?php echo esc_attr( $coral_custom_scroll_container ); ?>",
 			});
 		};
