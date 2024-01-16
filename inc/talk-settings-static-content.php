@@ -9,13 +9,13 @@
 <p>
 	<?php printf(
 		esc_html__( 'You can find out how to install and manage Coral %shere%s.', 'coral-project-talk' ),
-		'<a href="https://docs.coralproject.net/talk/">',
+		'<a href="https://docs.coralproject.net/">',
 		'</a>'
 	); ?>
 </p>
 <p>
 	<?php printf(
-		esc_html__( 'Coral is an open source product brought to you by The Coral Project. Find out more about Coral and the tools we build %shere%s.', 'coral-project-talk' ),
+		esc_html__( 'Coral is an open-source commenting platform brought to you by Vox Media. Find out more about Coral and the tools we build %shere%s.', 'coral-project-talk' ),
 		'<a href="https://coralproject.net">',
 		'</a>'
 	); ?>

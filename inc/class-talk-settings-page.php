@@ -69,15 +69,6 @@ class Talk_Settings_Page {
 		) );
 
 		add_settings_field(
-			'coral_stream_id',
-			__( 'Stream ID', 'coral-project-talk' ),
-			array( $this, 'render_stream_id_field' ),
-			'talk-settings',
-			'about-talk'
-		);
-		register_setting( 'talk-settings', 'coral_stream_id');
-
-		add_settings_field(
 			'coral_talk_container_classes',
 			__( 'Embed Container CSS Classes', 'coral-project-talk' ),
 			array( $this, 'render_container_classes_field' ),
@@ -193,20 +184,6 @@ class Talk_Settings_Page {
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
 		<p class="description">The root url where static Coral assets should be served from. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-static-uri' ); ?>">STATIC_URI</a> defined in the Coral application configuration.</p>
-		<?php
-	}
-
-	public function render_stream_id_field() {
-		?>
-		<input
-				style="width: 600px; height: 40px;"
-				name="coral_stream_id"
-				placeholder="coral-embed-stream"
-				id="coral_stream_id"
-				type="text"
-				value="<?php echo esc_attr( get_option( 'coral_stream_id' ) ); ?>"
-		/>
-		<p class="description">ID of a DOM element on the page into which the comment stream will be rendered.</p>
 		<?php
 	}
 
