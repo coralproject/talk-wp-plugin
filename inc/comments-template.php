@@ -12,7 +12,8 @@ $talk_url = get_option( 'coral_talk_base_url' );
 $static_url = get_option( 'coral_talk_static_url', $talk_url );
 $talk_container_classes = get_option( 'coral_talk_container_classes' );
 $talk_version = get_option( 'coral_talk_version' );
-$coral_story_id = get_option('coral_story_id', null);
+$coral_custom_css_url = get_option( 'coral_custom_css_url' );
+$coral_custom_fonts_css_url = get_option( 'coral_custom_fonts_css_url' );
 
 $div_id = 'coral_talk_' . absint( rand() );
 
@@ -31,7 +32,8 @@ if ( $talk_version == "5" ) : ?>
 				id: "coral_thread",
 				autoRender: true,
 				rootURL: "<?php echo esc_url( $talk_url ); ?>",
-				storyID: "<?php echo esc_attr( $coral_story_id ); ?>",
+				customCSSURL: "<?php echo esc_url( $coral_custom_css_url ); ?>",
+				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>"
 			});
 		};
 		(d.head || d.body).appendChild(s);

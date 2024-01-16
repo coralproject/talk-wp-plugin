@@ -87,13 +87,28 @@ class Talk_Settings_Page {
 		register_setting( 'talk-settings', 'coral_talk_version' );
 
 		add_settings_field(
-			'coral_story_id',
-			__( 'Story ID', 'coral-project-talk' ),
-			array($this, 'render_story_id_field'),
+			'coral_custom_css_url',
+			__( 'Custom CSS URL', 'coral-project-talk' ),
+			array( $this, 'render_custom_css_url_field' ),
 			'talk-settings',
 			'about-talk'
 		);
-		register_setting( 'talk-settings', 'coral_story_id' );
+		register_setting( 'talk-settings', 'coral_custom_css_url', array(
+			'type' => 'string',
+			'sanitize_callback' => array( $this, 'sanitize_url' ),
+		) );
+
+		add_settings_field(
+			'coral_custom_fonts_css_url',
+			__( 'Custom Fonts CSS URL', 'coral-project-talk' ),
+			array( $this, 'render_custom_fonts_css_url_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_custom_fonts_css_url', array(
+			'type' => 'string',
+			'sanitize_callback' => array( $this, 'sanitize_url' ),
+		) );
 	}
 
 	/**
@@ -145,6 +160,34 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	public function render_custom_css_url_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_custom_css_url"
+				placeholder="https://cdn.talk-assets.com/coral_custom.css"
+				id="coral_custom_css_url"
+				type="url"
+				value="<?php echo esc_url( get_option( 'coral_custom_css_url' ) ); ?>"
+		/>
+		<p class="description">URL for a custom stylesheet to be included to style this Coral stream. To configure a custom stylesheet for all streams, see advanced configuration options in the admin.</p>
+		<?php
+	}
+
+	public function render_custom_fonts_css_url_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_custom_fonts_css_url"
+				placeholder="https://cdn.talk-assets.com/coral_custom_fonts.css"
+				id="coral_custom_fonts_css_url"
+				type="url"
+				value="<?php echo esc_url( get_option( 'coral_custom_fonts_css_url' ) ); ?>"
+		/>
+		<p class="description">URL for a custom stylesheet with font-face definitions to be included to style this Coral stream. To configure a custom stylesheet for all streams, see advanced configuration options in the admin.</p>
+		<?php
+	}
+
 	/**
 	 * Prints input field for settings.
 	 *
@@ -162,21 +205,6 @@ class Talk_Settings_Page {
 		/>
 		<?php
 	}
-
-	public function render_story_id_field() {
-		?>
-		<input
-			style="width: 600px; height: 40px;"
-			name="coral_story_id"
-			placeholder=""
-			id="coral_story_id"
-			type="text"
-			value="<?php echo esc_attr( get_option( 'coral_story_id' ) ); ?>"
-		/>
-		<p class="description">ID for the story. May alternately specify via Story URL or allow Coral to scrape and determine automatically. If used without a Story URL, the coment stream will use the canonical URL of the page it's running on as the Story URL.</p>
-		<?php
-	}
-
 	/**
 	 * Prints drop down for version.
 	 *
