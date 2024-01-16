@@ -12,6 +12,7 @@ $talk_url = get_option( 'coral_talk_base_url' );
 $static_url = get_option( 'coral_talk_static_url', $talk_url );
 $talk_container_classes = get_option( 'coral_talk_container_classes' );
 $talk_version = get_option( 'coral_talk_version' );
+$coral_story_id = get_option('coral_story_id', null);
 
 $div_id = 'coral_talk_' . absint( rand() );
 
@@ -29,7 +30,8 @@ if ( $talk_version == "5" ) : ?>
 			Coral.createStreamEmbed({
 				id: "coral_thread",
 				autoRender: true,
-				rootURL: "<?php echo esc_url( $talk_url ); ?>"
+				rootURL: "<?php echo esc_url( $talk_url ); ?>",
+				storyID: "<?php echo esc_attr( $coral_story_id ); ?>",
 			});
 		};
 		(d.head || d.body).appendChild(s);

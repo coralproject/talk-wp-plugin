@@ -85,6 +85,15 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_version' );
+
+		add_settings_field(
+			'coral_story_id',
+			__( 'Story ID', 'coral-project-talk' ),
+			array($this, 'render_story_id_field'),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_story_id' );
 	}
 
 	/**
@@ -151,6 +160,20 @@ class Talk_Settings_Page {
 			type="text"
 			value="<?php echo esc_attr( get_option( 'coral_talk_container_classes' ) ); ?>"
 		/>
+		<?php
+	}
+
+	public function render_story_id_field() {
+		?>
+		<input
+			style="width: 600px; height: 40px;"
+			name="coral_story_id"
+			placeholder=""
+			id="coral_story_id"
+			type="text"
+			value="<?php echo esc_attr( get_option( 'coral_story_id' ) ); ?>"
+		/>
+		<p class="description">ID for the story. May alternately specify via Story URL or allow Coral to scrape and determine automatically. If used without a Story URL, the coment stream will use the canonical URL of the page it's running on as the Story URL.</p>
 		<?php
 	}
 
