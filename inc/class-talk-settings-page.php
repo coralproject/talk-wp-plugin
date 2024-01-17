@@ -141,7 +141,7 @@ class Talk_Settings_Page {
 	}
 
 	/**
-	 * Prints input field for settings.
+	 * Prints input field for base URL setting.
 	 *
 	 * @since 0.0.1
 	 */
@@ -178,6 +178,11 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	/**
+	 * Prints input field for custom CSS url setting.
+	 *
+	 * @since 1.0.0
+	 */
 	public function render_custom_css_url_field() {
 		?>
 		<input
@@ -192,6 +197,11 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	/**
+	 * Prints input field for custom fonts CSS url setting.
+	 *
+	 * @since 1.0.0
+	 */
 	public function render_custom_fonts_css_url_field() {
 		?>
 		<input
@@ -206,6 +216,11 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	/**
+	 * Prints input field for Coral container class name setting.
+	 *
+	 * @since 1.0.0
+	 */
 	public function render_container_class_name_field() {
 		?>
 		<input
@@ -220,6 +235,11 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	/**
+	 * Prints input field for custom scroll container setting.
+	 *
+	 * @since 1.0.0
+	 */
 	public function render_custom_scroll_container_field() {
 		?>
 		<input
@@ -234,6 +254,11 @@ class Talk_Settings_Page {
 		<?php
 	}
 
+	/**
+	 * Prints input field for disable default fonts setting.
+	 *
+	 * @since 1.0.0
+	 */
 	public function render_disable_default_fonts_field() {
 		$default_fonts = esc_attr( get_option( 'coral_disable_default_fonts' ) )
 		?>

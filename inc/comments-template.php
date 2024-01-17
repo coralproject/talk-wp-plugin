@@ -6,6 +6,9 @@
  *
  * @package Talk_Plugin
  * @since 0.0.3 Added support for talk container class and removed id
+ * @since 1.0.0 Added support for custom CSS url, custom fonts CSS url, 
+ * disable default fonts, custom scroll container, canonical story url, and story mode. Also
+ * updated support for container class name.
  */
 
 $talk_url = get_option( 'coral_talk_base_url' );
