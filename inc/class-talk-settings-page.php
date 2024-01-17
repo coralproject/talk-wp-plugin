@@ -235,6 +235,7 @@ class Talk_Settings_Page {
 	}
 
 	public function render_disable_default_fonts_field() {
+		$default_fonts = esc_attr( get_option( 'coral_disable_default_fonts' ) )
 		?>
 		<select
 				style="width: 600px; height: 40px;"
@@ -242,19 +243,18 @@ class Talk_Settings_Page {
 				placeholder=""
 				id="coral_disable_default_fonts"
 				type="select"
-				value="<?php echo esc_url( get_option( 'coral_disable_default_fonts' ) ); ?>"
 		>
-		<option value="1"
+		<option value="true"
 				<?php 
-					if ($coral_disable_default_fonts === "1")
+					if ($default_fonts === "true")
 						echo "selected=\"selected\""
 				?>
 			>
 				true
 			</option>
-			<option value="0"
+			<option value="false"
 				<?php 
-					if ($coral_disable_default_fonts === "0")
+					if ($default_fonts === "false")
 						echo "selected=\"selected\""
 				?>
 			>

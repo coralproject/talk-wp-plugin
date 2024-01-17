@@ -16,6 +16,8 @@ $coral_custom_fonts_css_url = get_option( 'coral_custom_fonts_css_url', null );
 $coral_container_class_name = get_option( 'coral_container_class_name', null);
 $coral_disable_default_fonts = get_option( 'coral_disable_default_fonts' );
 $coral_custom_scroll_container = get_option( 'coral_custom_scroll_container', null );
+$canonical_url = wp_get_canonical_url();
+$storyMode = $post->coralStoryMode;
 
 $div_id = 'coral_talk_' . absint( rand() );
 
@@ -28,6 +30,7 @@ if ( $talk_version == "5" ) : ?>
 	<script type="text/javascript">
 	(function() {
 		var d = document, s = d.createElement('script');
+		const disableDefaultFonts = "<?php echo esc_attr( $coral_disable_default_fonts ); ?>" === "true";
 		s.src = "<?php echo esc_url( $talk_url . '/assets/js/embed.js' ); ?>"
 		s.onload = function() {
 			Coral.createStreamEmbed({
@@ -37,8 +40,10 @@ if ( $talk_version == "5" ) : ?>
 				containerClassName: "<?php echo esc_attr( $coral_container_class_name ); ?>",
 				customCSSURL: "<?php echo esc_url( $coral_custom_css_url ); ?>",
 				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>",
-				disableDefaultFonts: "<?php echo boolVal( $coral_disable_default_fonts ); ?>",
+				disableDefaultFonts: disableDefaultFonts,
 				customScrollContainer: "<?php echo esc_attr( $coral_custom_scroll_container ); ?>",
+				storyURL: "<?php echo esc_url( $canonical_url ); ?>",
+				storyMode: "<?php echo esc_attr( $storyMode ); ?>",
 			});
 		};
 		(d.head || d.body).appendChild(s);

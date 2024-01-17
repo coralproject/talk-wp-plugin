@@ -6,13 +6,17 @@ This plugin replaces standard WordPress commenting with [Coral by Vox Media](htt
 
 First, you'll need a server running your own instance of Coral. See the [Coral Docs](https://docs.coralproject.net/) for more info about that.
 
-Then...
+Then you will need to:
 
 1. Add the hostname of your WordPress site to the whitelist in the settings of your Coral instance.
 1. Install and activate this plugin as you would any other WordPress plugin.
 1. Go to `https://mysite.com/wp-admin/options-general.php?page=talk-settings`
 1. Add the URL of your Coral instance to `Server Base URL` in Settings and click Save.
 1. Review and complete any further Settings and click Save.
+
+## Story settings
+
+Coral will use the canonical URL for a Wordpress post for the Story URL.
 
 ## HTTPS and Dev Mode
 
