@@ -16,7 +16,7 @@ Then you will need to:
 
 ## Story settings
 
-Coral will use the canonical URL for a Wordpress post for the Story URL.
+The plugin uses the canonical URL for a Wordpress post for the Coral Story URL.
 
 ## HTTPS and Dev Mode
 

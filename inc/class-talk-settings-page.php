@@ -245,12 +245,12 @@ class Talk_Settings_Page {
 		<input
 			style="width: 600px; height: 40px;"
 			name="coral_custom_scroll_container"
-			placeholder=""
+			placeholder="myElementId"
 			id="coral_custom_scroll_container"
 			type="text"
 			value="<?php echo esc_attr( get_option( 'coral_custom_scroll_container' ) ); ?>"
 		/>
-		<p class="description">Supports a custom scroll container element if Coral is rendered outside of the render window.</p>
+		<p class="description">Supports a custom scroll container element if Coral is rendered outside of the render window. Add the element id you wish to use, and Coral will find it if it's in the document and send it through.</p>
 		<?php
 	}
 

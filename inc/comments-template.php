@@ -36,6 +36,7 @@ if ( $talk_version == "5" ) : ?>
 		const disableDefaultFonts = "<?php echo esc_attr( $coral_disable_default_fonts ); ?>" === "true";
 		s.src = "<?php echo esc_url( $talk_url . '/assets/js/embed.js' ); ?>"
 		s.onload = function() {
+			const customScrollContainer = document.getElementById("<?php echo esc_attr( $coral_custom_scroll_container ); ?>") || undefined;
 			Coral.createStreamEmbed({
 				id: "coral_thread",
 				autoRender: true,
@@ -44,7 +45,7 @@ if ( $talk_version == "5" ) : ?>
 				customCSSURL: "<?php echo esc_url( $coral_custom_css_url ); ?>",
 				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>",
 				disableDefaultFonts: disableDefaultFonts,
-				customScrollContainer: "<?php echo esc_attr( $coral_custom_scroll_container ); ?>",
+				customScrollContainer: customScrollContainer,
 				storyURL: "<?php echo esc_url( $canonical_url ); ?>",
 				storyMode: "<?php echo esc_attr( $storyMode ); ?>",
 			});
