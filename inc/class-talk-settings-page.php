@@ -127,6 +127,15 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_custom_scroll_container' );
+
+		add_settings_field(
+			'coral_enable_canonical_story_urls',
+			__( 'Enable canonical story urls', 'coral-project-talk' ),
+			array( $this, 'render_enable_canonical_story_urls_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_enable_canonical_story_urls' );
 	}
 
 	/**
@@ -269,6 +278,42 @@ class Talk_Settings_Page {
 				id="coral_disable_default_fonts"
 				type="select"
 		>
+		<option value="false"
+				<?php 
+					if ($default_fonts === "false")
+						echo "selected=\"selected\""
+				?>
+			>
+				false
+			</option>
+		<option value="true"
+				<?php 
+					if ($default_fonts === "true")
+						echo "selected=\"selected\""
+				?>
+			>
+				true
+			</option>
+	</select>
+		<p class="description">Disable default fonts will turn off font-face loading of Coral's default fonts.</p>
+		<?php
+	}
+
+	/**
+	 * Prints input field for disable default fonts setting.
+	 *
+	 * @since 1.0.0
+	 */
+	public function render_enable_canonical_story_urls_field() {
+		$default_fonts = esc_attr( get_option( 'coral_enable_canonical_story_urls' ) )
+		?>
+		<select
+				style="width: 600px; height: 40px;"
+				name="coral_enable_canonical_story_urls"
+				placeholder=""
+				id="coral_enable_canonical_story_urls"
+				type="select"
+		>
 		<option value="true"
 				<?php 
 					if ($default_fonts === "true")
@@ -286,7 +331,7 @@ class Talk_Settings_Page {
 				false
 			</option>
 	</select>
-		<p class="description">Disable default fonts will turn off font-face loading of Coral's default fonts.</p>
+		<p class="description">When enabled, the canonical story URL will be passed through to the Coral stream embed.</p>
 		<?php
 	}
 

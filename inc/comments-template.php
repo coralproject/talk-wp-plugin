@@ -19,6 +19,7 @@ $coral_custom_fonts_css_url = get_option( 'coral_custom_fonts_css_url', null );
 $coral_container_class_name = get_option( 'coral_container_class_name', null);
 $coral_disable_default_fonts = get_option( 'coral_disable_default_fonts' );
 $coral_custom_scroll_container = get_option( 'coral_custom_scroll_container', null );
+$enable_canonical_url = get_option( 'coral_enable_canonical_story_urls' );
 $canonical_url = wp_get_canonical_url();
 $storyMode = $post->coralStoryMode;
 
@@ -34,6 +35,7 @@ if ( $talk_version == "5" ) : ?>
 	(function() {
 		var d = document, s = d.createElement('script');
 		const disableDefaultFonts = "<?php echo esc_attr( $coral_disable_default_fonts ); ?>" === "true";
+		const storyURL = "<?php echo esc_attr( $enable_canonical_url ); ?>" === "true" ? "<?php echo esc_url( $canonical_url ); ?>" : undefined;
 		s.src = "<?php echo esc_url( $talk_url . '/assets/js/embed.js' ); ?>"
 		s.onload = function() {
 			const customScrollContainer = document.getElementById("<?php echo esc_attr( $coral_custom_scroll_container ); ?>") || undefined;
@@ -46,7 +48,7 @@ if ( $talk_version == "5" ) : ?>
 				customFontsCSSURL: "<?php echo esc_url( $coral_custom_fonts_css_url ); ?>",
 				disableDefaultFonts: disableDefaultFonts,
 				customScrollContainer: customScrollContainer,
-				storyURL: "<?php echo esc_url( $canonical_url ); ?>",
+				storyURL: storyURL,
 				storyMode: "<?php echo esc_attr( $storyMode ); ?>",
 			});
 		};

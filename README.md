@@ -16,7 +16,7 @@ Then you will need to:
 
 ## Story settings
 
-The plugin uses the canonical URL for a Wordpress post for the Coral Story URL.
+The plugin supports enabling canonical URLs for a Wordpress post to be passed through to the Coral stream embed as the story URL.
 
 The plugin also supports setting a story mode and sending it through to the Coral stream embed. To use, you can add a custom field in Wordpress called `coralStoryMode` and then set it to a valid story mode.
 
@@ -24,7 +24,7 @@ The plugin also supports setting a story mode and sending it through to the Cora
 
 Your site must be served over `https` in order to integrate with Coral **unless** Coral is set to dev mode.
 
-If you're installing Coral with Docker, you can do that by adding `NODE_ENV=dev` to the environment variables in your [`docker-compose.yml`](https://docs.coralproject.net/environment-variables#node_env). Otherwise, any method of setting `process.env.NODE_ENV = 'dev'` will do the trick.
+If you're installing Coral with Docker, you can do that by adding `NODE_ENV=development` to the environment variables in your [`docker-compose.yml`](https://docs.coralproject.net/environment-variables#node_env). Otherwise, any method of setting `NODE_ENV=development` will do the trick.
 
 ## Theme usage
 
@@ -58,4 +58,4 @@ Coral version <= `v3.9.1` use plugin version `v0.0.6`
 
 Coral version >= `4.0.0` use plugin version `v0.1.0`
 
-Coral version >= `5.0.0` use plugin version `v0.2.1`
+Coral version >= `5.0.0` use plugin version `v1.0.0`
