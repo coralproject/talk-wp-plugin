@@ -18,6 +18,8 @@ Then you will need to:
 
 The plugin uses the canonical URL for a Wordpress post for the Coral Story URL.
 
+The plugin also supports setting a story mode and sending it through to the Coral stream embed. To use, you can add a custom field in Wordpress called `coralStoryMode` and then set it to a valid story mode.
+
 ## HTTPS and Dev Mode
 
 Your site must be served over `https` in order to integrate with Coral **unless** Coral is set to dev mode.
