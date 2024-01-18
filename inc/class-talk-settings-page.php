@@ -169,7 +169,7 @@ class Talk_Settings_Page {
 		<input
 				style="width: 600px; height: 40px;"
 				name="coral_talk_static_url"
-				placeholder="https://cdn.talk-assets.com"
+				placeholder="https://cdn.coral-assets.com"
 				id="coral_talk_static_url"
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
@@ -188,7 +188,7 @@ class Talk_Settings_Page {
 		<input
 				style="width: 600px; height: 40px;"
 				name="coral_custom_css_url"
-				placeholder="https://cdn.talk-assets.com/coral_custom.css"
+				placeholder="https://cdn.coral-assets.com/coral_custom.css"
 				id="coral_custom_css_url"
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_custom_css_url' ) ); ?>"
@@ -207,7 +207,7 @@ class Talk_Settings_Page {
 		<input
 				style="width: 600px; height: 40px;"
 				name="coral_custom_fonts_css_url"
-				placeholder="https://cdn.talk-assets.com/coral_custom_fonts.css"
+				placeholder="https://cdn.coral-assets.com/coral_custom_fonts.css"
 				id="coral_custom_fonts_css_url"
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_custom_fonts_css_url' ) ); ?>"

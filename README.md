@@ -22,7 +22,7 @@ The plugin uses the canonical URL for a Wordpress post for the Coral Story URL.
 
 Your site must be served over `https` in order to integrate with Coral **unless** Coral is set to dev mode.
 
-If you're installing Coral with Docker, you can do that by adding `NODE_ENV=dev` to the environment variables in your [`docker-compose.yml`](https://docs.coralproject.net/talk/installation-from-docker/). Otherwise, any method of setting `process.env.NODE_ENV = 'dev'` will do the trick.
+If you're installing Coral with Docker, you can do that by adding `NODE_ENV=dev` to the environment variables in your [`docker-compose.yml`](https://docs.coralproject.net/environment-variables#node_env). Otherwise, any method of setting `process.env.NODE_ENV = 'dev'` will do the trick.
 
 ## Theme usage
 
