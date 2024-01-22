@@ -69,13 +69,13 @@ class Talk_Settings_Page {
 		) );
 
 		add_settings_field(
-			'coral_talk_container_classes',
-			__( 'Embed Container CSS Classes', 'coral-project-talk' ),
-			array( $this, 'render_container_classes_field' ),
+			'coral_container_class_name',
+			__( 'Embed Container CSS Class', 'coral-project-talk' ),
+			array( $this, 'render_container_class_name_field' ),
 			'talk-settings',
 			'about-talk'
 		);
-		register_setting( 'talk-settings', 'coral_talk_container_classes' );
+		register_setting( 'talk-settings', 'coral_container_class_name' );
 
 		add_settings_field(
 			'coral_talk_version',
@@ -85,6 +85,57 @@ class Talk_Settings_Page {
 			'about-talk'
 		);
 		register_setting( 'talk-settings', 'coral_talk_version' );
+
+		add_settings_field(
+			'coral_custom_css_url',
+			__( 'Custom CSS URL', 'coral-project-talk' ),
+			array( $this, 'render_custom_css_url_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_custom_css_url', array(
+			'type' => 'string',
+			'sanitize_callback' => array( $this, 'sanitize_url' ),
+		) );
+
+		add_settings_field(
+			'coral_custom_fonts_css_url',
+			__( 'Custom Fonts CSS URL', 'coral-project-talk' ),
+			array( $this, 'render_custom_fonts_css_url_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_custom_fonts_css_url', array(
+			'type' => 'string',
+			'sanitize_callback' => array( $this, 'sanitize_url' ),
+		) );
+
+		add_settings_field(
+			'coral_disable_default_fonts',
+			__( 'Disable default fonts', 'coral-project-talk' ),
+			array( $this, 'render_disable_default_fonts_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_disable_default_fonts');
+
+		add_settings_field(
+			'coral_custom_scroll_container',
+			__( 'Custom scroll container', 'coral-project-talk' ),
+			array( $this, 'render_custom_scroll_container_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_custom_scroll_container' );
+
+		add_settings_field(
+			'coral_enable_canonical_story_urls',
+			__( 'Enable canonical story urls', 'coral-project-talk' ),
+			array( $this, 'render_enable_canonical_story_urls_field' ),
+			'talk-settings',
+			'about-talk'
+		);
+		register_setting( 'talk-settings', 'coral_enable_canonical_story_urls' );
 	}
 
 	/**
@@ -99,7 +150,7 @@ class Talk_Settings_Page {
 	}
 
 	/**
-	 * Prints input field for settings.
+	 * Prints input field for base URL setting.
 	 *
 	 * @since 0.0.1
 	 */
@@ -113,7 +164,7 @@ class Talk_Settings_Page {
 			type="url"
 			value="<?php echo esc_url( get_option( 'coral_talk_base_url' ) ); ?>"
 		/>
-		<p class="description">The root url of the installed Coral application. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/configuration/#talk-root-url' ); ?>">ROOT_URL</a> defined in the Coral application configuration.</p>
+		<p class="description"><span style="font-weight: bold;">* Required.</span> The root url of the installed Coral application.</p>
 		<?php
 	}
 
@@ -127,30 +178,160 @@ class Talk_Settings_Page {
 		<input
 				style="width: 600px; height: 40px;"
 				name="coral_talk_static_url"
-				placeholder="https://cdn.talk-assets.com"
+				placeholder="https://cdn.coral-assets.com"
 				id="coral_talk_static_url"
 				type="url"
 				value="<?php echo esc_url( get_option( 'coral_talk_static_url' ) ); ?>"
 		/>
-		<p class="description">The root url where static Coral assets should be served from. This is the same value as <a href="<?php echo esc_url( 'https://docs.coralproject.net/talk/advanced-configuration/#talk-static-uri' ); ?>">STATIC_URI</a> defined in the Coral application configuration.</p>
+		<p class="description">The root url where static Coral assets should be served from. This is the same value as defined by the <a href="<?php echo esc_url( 'https://docs.coralproject.net/environment-variables#static_uri' ); ?>">STATIC_URI</a> environment variable.</p>
 		<?php
 	}
 
 	/**
-	 * Prints input field for settings.
+	 * Prints input field for custom CSS url setting.
 	 *
-	 * @since 0.0.3
+	 * @since 1.0.0
 	 */
-	public function render_container_classes_field() {
+	public function render_custom_css_url_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_custom_css_url"
+				placeholder="https://cdn.coral-assets.com/coral_custom.css"
+				id="coral_custom_css_url"
+				type="url"
+				value="<?php echo esc_url( get_option( 'coral_custom_css_url' ) ); ?>"
+		/>
+		<p class="description">URL for a custom stylesheet to be included to style this Coral stream. To configure a custom stylesheet for all streams, see advanced configuration options in the admin.</p>
+		<?php
+	}
+
+	/**
+	 * Prints input field for custom fonts CSS url setting.
+	 *
+	 * @since 1.0.0
+	 */
+	public function render_custom_fonts_css_url_field() {
+		?>
+		<input
+				style="width: 600px; height: 40px;"
+				name="coral_custom_fonts_css_url"
+				placeholder="https://cdn.coral-assets.com/coral_custom_fonts.css"
+				id="coral_custom_fonts_css_url"
+				type="url"
+				value="<?php echo esc_url( get_option( 'coral_custom_fonts_css_url' ) ); ?>"
+		/>
+		<p class="description">URL for a custom stylesheet with font-face definitions to be included to style this Coral stream. To configure a custom stylesheet for all streams, see advanced configuration options in the admin.</p>
+		<?php
+	}
+
+	/**
+	 * Prints input field for Coral container class name setting.
+	 *
+	 * @since 1.0.0
+	 */
+	public function render_container_class_name_field() {
 		?>
 		<input
 			style="width: 600px; height: 40px;"
-			name="coral_talk_container_classes"
+			name="coral_container_class_name"
 			placeholder=""
-			id="coral_talk_container_classes"
+			id="coral_container_class_name"
 			type="text"
-			value="<?php echo esc_attr( get_option( 'coral_talk_container_classes' ) ); ?>"
+			value="<?php echo esc_attr( get_option( 'coral_container_class_name' ) ); ?>"
 		/>
+		<p class="description">HTML class name to add to the container of the stream embed for CSS targeting.</p>
+		<?php
+	}
+
+	/**
+	 * Prints input field for custom scroll container setting.
+	 *
+	 * @since 1.0.0
+	 */
+	public function render_custom_scroll_container_field() {
+		?>
+		<input
+			style="width: 600px; height: 40px;"
+			name="coral_custom_scroll_container"
+			placeholder="myElementId"
+			id="coral_custom_scroll_container"
+			type="text"
+			value="<?php echo esc_attr( get_option( 'coral_custom_scroll_container' ) ); ?>"
+		/>
+		<p class="description">Supports a custom scroll container element if Coral is rendered outside of the render window. Add the element id you wish to use, and Coral will find it if it's in the document and send it through.</p>
+		<?php
+	}
+
+	/**
+	 * Prints input field for disable default fonts setting.
+	 *
+	 * @since 1.0.0
+	 */
+	public function render_disable_default_fonts_field() {
+		$default_fonts = esc_attr( get_option( 'coral_disable_default_fonts' ) )
+		?>
+		<select
+				style="width: 600px; height: 40px;"
+				name="coral_disable_default_fonts"
+				placeholder=""
+				id="coral_disable_default_fonts"
+				type="select"
+		>
+		<option value="false"
+				<?php 
+					if ($default_fonts === "false")
+						echo "selected=\"selected\""
+				?>
+			>
+				false
+			</option>
+		<option value="true"
+				<?php 
+					if ($default_fonts === "true")
+						echo "selected=\"selected\""
+				?>
+			>
+				true
+			</option>
+	</select>
+		<p class="description">Disable default fonts will turn off font-face loading of Coral's default fonts.</p>
+		<?php
+	}
+
+	/**
+	 * Prints input field for disable default fonts setting.
+	 *
+	 * @since 1.0.0
+	 */
+	public function render_enable_canonical_story_urls_field() {
+		$default_fonts = esc_attr( get_option( 'coral_enable_canonical_story_urls' ) )
+		?>
+		<select
+				style="width: 600px; height: 40px;"
+				name="coral_enable_canonical_story_urls"
+				placeholder=""
+				id="coral_enable_canonical_story_urls"
+				type="select"
+		>
+		<option value="true"
+				<?php 
+					if ($default_fonts === "true")
+						echo "selected=\"selected\""
+				?>
+			>
+				true
+			</option>
+			<option value="false"
+				<?php 
+					if ($default_fonts === "false")
+						echo "selected=\"selected\""
+				?>
+			>
+				false
+			</option>
+	</select>
+		<p class="description">When enabled, the canonical story URL will be passed through to the Coral stream embed.</p>
 		<?php
 	}
 

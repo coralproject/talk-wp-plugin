@@ -1,25 +1,30 @@
 # Coral WP Plugin
 
-This plugin replaces standard WordPress commenting with [Coral by Vox Media](https://coralproject.net). The open-source commenting platform that rethinks
-how moderation, comment display, and conversation function, creating the
-opportunity for safer, smarter discussions.
+This plugin replaces standard WordPress commenting with [Coral by Vox Media](https://coralproject.net). Coral is an open-source commenting platform that rethinks how moderation, comment display, and conversation function, creating the opportunity for safer, smarter discussions.
 
 ## Setup
 
-First, you'll need a server running your own instance of Coral. See the [Coral Docs](https://docs.coralproject.net/talk/) for more info about that.
+First, you'll need a server running your own instance of Coral. See the [Coral Docs](https://docs.coralproject.net/) for more info about that.
 
-Then...
+Then you will need to:
 
 1. Add the hostname of your WordPress site to the whitelist in the settings of your Coral instance.
 1. Install and activate this plugin as you would any other WordPress plugin.
 1. Go to `https://mysite.com/wp-admin/options-general.php?page=talk-settings`
-1. Enter the URL of your Coral instance and click Save.
+1. Add the URL of your Coral instance to `Server Base URL` in Settings and click Save.
+1. Review and complete any further Settings and click Save.
+
+## Story settings
+
+The plugin supports enabling canonical URLs for a Wordpress post to be passed through to the Coral stream embed as the story URL.
+
+The plugin also supports setting a story mode and sending it through to the Coral stream embed. To use, you can add a custom field in Wordpress called `coralStoryMode` and then set it to a valid story mode.
 
 ## HTTPS and Dev Mode
 
 Your site must be served over `https` in order to integrate with Coral **unless** Coral is set to dev mode.
 
-If you're installing Coral with Docker, you can do that by adding `NODE_ENV=dev` to the environment variables in your [`docker-compose.yml`](https://docs.coralproject.net/talk/installation-from-docker/). Otherwise, any method of setting `process.env.NODE_ENV = 'dev'` will do the trick.
+If you're installing Coral with Docker, you can do that by adding `NODE_ENV=development` to the environment variables in your [`docker-compose.yml`](https://docs.coralproject.net/environment-variables#node_env). Otherwise, any method of setting `NODE_ENV=development` will do the trick.
 
 ## Theme usage
 
@@ -48,8 +53,9 @@ Coral v4.9.0+ comes with AMP support. This plugin automatically integrates with 
 If you are building a custom theme, you can use `coral_talk_comments_amp_template()` to add the Coral AMP Iframe.
 
 ## Version
+
 Coral version <= `v3.9.1` use plugin version `v0.0.6`
 
 Coral version >= `4.0.0` use plugin version `v0.1.0`
 
-Coral version >= `5.0.0` use plugin version `v0.2.1`
+Coral version >= `5.0.0` use plugin version `v1.0.0`
